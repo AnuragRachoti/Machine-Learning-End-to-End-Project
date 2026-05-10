@@ -2,6 +2,7 @@ import sys
 import logging
 import os
 from datetime import datetime
+from src.logger import logging
 
 
 # Configure logging to write to a file
@@ -10,11 +11,6 @@ logs_dir = os.path.join(os.getcwd(), "logs")
 os.makedirs(logs_dir, exist_ok=True)
 LOG_FILE_PATH = os.path.join(logs_dir, LOG_FILE)
 
-logging.basicConfig(
-    filename=LOG_FILE_PATH,
-    level=logging.INFO,
-    format="[%(asctime)s] %(levelname)s - %(message)s"
-)
 
 def error_message_detail(error, error_detail:sys):
     _, _, exc_tb = error_detail.exc_info()
